@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-
+const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -17,6 +17,7 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
+        required: true,
         enum: ["owner", "customer"],
         default: "customer"
     },
@@ -40,8 +41,6 @@ userSchema.methods.comparePassword = async function (password, cb) {
     }
 };
 
-// mongoose middlewares
-// 若使用者為新用戶，或者是正在更改密碼，則將密碼進行雜湊處理
 userSchema.pre("save", async function (next) {
     // this 代表 mongoDB 內的 document
     if (this.isNew || this.isModified("password")) {

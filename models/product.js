@@ -7,6 +7,10 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String
+    }
+    ,
     description: {
         type: String,
         required: true
@@ -23,6 +27,10 @@ const productSchema = new Schema({
         type: String,
         required: true,
         default: "tea"
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
     }
 
 })

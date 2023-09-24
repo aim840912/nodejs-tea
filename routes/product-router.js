@@ -22,9 +22,10 @@ router.get('/:_id', async (req, res) => {
 })
 
 router.post('/new', async (req, res) => {
-  const { name, description, price, quantity, category } = req.body;
+  const { name, image, description, price, quantity, category } = req.body;
+
   const createdProduct = new Product({
-    name, description, price, quantity, category
+    name, image, description, price, quantity, category, owner: req.user._id
   });
 
   try {
