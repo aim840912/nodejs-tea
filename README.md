@@ -1,8 +1,11 @@
 ## 核心功能
-* passport：​用於實作使用者身份驗證機制。
-* jwt：​透過 JSON Web Token 實現無狀態的使用者登入驗證。
-* multer：​處理檔案上傳，常用於接收使用者上傳的圖片或文件。
-* Joi：​進行資料驗證，確保輸入資料符合預期格式與規則。​
+* express：Node.js 的 Web 應用框架。
+* passport：身份驗證中介層。
+* passport-jwt：用於處理 JWT 的 Passport 策略。
+* jsonwebtoken：用於簽發與驗證 JWT。
+* bcrypt：處理密碼雜湊。
+* joi：資料驗證工具。
+* multer：處理檔案上傳。
 
 ## 專案的主要檔案與資料夾包括：​
 * index.js：​應用程式的進入點，設定伺服器與中介軟體。
